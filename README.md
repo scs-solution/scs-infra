@@ -27,6 +27,16 @@ terraform apply -auto-approve
 ### Get IP Address of Instance
 
 ```sh
-echo "aws_instance.web.public_ip" | .\terraform.exe console
+# ec2
+echo "aws_instance.web.public_ip" | terraform.exe console
 ssh -i ~/.ssh/web_admin ec2-user@~~
+# rds
+echo "aws_db_instance.web_db.endpoint" | terrafrom.exe console
+```
+
+### Destroy
+
+```sh
+terraform plan -destroy
+terraform destroy
 ```
