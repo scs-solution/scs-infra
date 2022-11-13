@@ -40,3 +40,24 @@ echo "aws_db_instance.web_db.endpoint" | terrafrom.exe console
 terraform plan -destroy
 terraform destroy
 ```
+
+
+### nginx.conf
+
+```conf
+        location /api {
+                proxy_pass http://127.0.0.1:3000/api;
+        }
+
+        location /api-docs {
+                proxy_pass http://127.0.0.1:3000/api-docs;
+        }
+
+        location / {
+                try_files $uri /index.html;
+        }
+
+        location /monitor {
+                proxy_pass http://127.0.0.1:8080/api/v1.0;
+        }
+```
