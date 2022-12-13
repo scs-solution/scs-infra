@@ -60,4 +60,8 @@ terraform destroy
         location /monitor {
                 proxy_pass http://127.0.0.1:8080/api/v1.0;
         }
+        
+        location /monitor {
+                proxy_pass http://127.0.0.1:8080/api/v1.0;
+        }
 ```
